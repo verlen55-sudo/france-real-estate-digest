@@ -29,7 +29,10 @@ import feedparser
 # прямой вариант по заданию для блока 3). Подробности — в README.md.
 
 LEGAL_FEED_URL = "https://news.google.com/rss/search?q=%22droit%20immobilier%22%20France&hl=fr&gl=FR"
-MARKET_FEED_URL = "https://news.google.com/rss/search?q=prix%20immobilier%20France%20notaires&hl=fr&gl=FR"
+MARKET_FEED_URL = (
+    "https://news.google.com/rss/search?q=%22prix%20immobilier%22%20OR%20"
+    "%22march%C3%A9%20immobilier%22%20France&hl=fr&gl=FR"
+)
 MENTON_FEED_URL = "https://news.google.com/rss/search?q=Menton&hl=fr&gl=FR"
 
 DAYS_BACK = 7
