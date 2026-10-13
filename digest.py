@@ -33,7 +33,10 @@ MARKET_FEED_URL = (
     "https://news.google.com/rss/search?q=%22prix%20immobilier%22%20OR%20"
     "%22march%C3%A9%20immobilier%22%20France&hl=fr&gl=FR"
 )
-MENTON_FEED_URL = "https://news.google.com/rss/search?q=Menton&hl=fr&gl=FR"
+MENTON_FEED_URL = (
+    "https://news.google.com/rss/search?q=Menton%20(%22Alpes-Maritimes%22%20OR%20"
+    "Riviera%20OR%20%22C%C3%B4te%20d%27Azur%22)&hl=fr&gl=FR"
+)
 
 DAYS_BACK = 7
 MAX_ITEMS_PER_SECTION = 15
