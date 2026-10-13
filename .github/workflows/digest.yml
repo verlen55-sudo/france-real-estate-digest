@@ -1,0 +1,30 @@
+name: Еженедельный дайджест недвижимости Франции
+
+on:
+  schedule:
+    # 06:00 UTC по понедельникам = 08:00 в Париже зимой (CET, UTC+1)
+    # и 08:00 летом (CEST, UTC+2) — см. пояснение в README про переход на летнее/зимнее время.
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}
+
+jobs:
+  send-digest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Получить код репозитория
+        uses: actions/checkout@v4
+
+      - name: Установить Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Установить зависимости
+        run: pip install -r requirements.txt
+
+      - name: Запустить дайджест и отправить письмо
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        run: python digest.py
